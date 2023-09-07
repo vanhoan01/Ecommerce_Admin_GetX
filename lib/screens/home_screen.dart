@@ -11,6 +11,8 @@ class HomeScreen extends StatelessWidget {
 
   OrderStatsController orderStatsController = Get.put(OrderStatsController());
 
+  NotificationServices notificationServices = NotificationServices();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +74,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            TextButton(
+              onPressed: () {
+                notificationServices.sendNotification('Admin', 'Gửi thông báo');
+              },
+              child: const Text('Send Notification'),
             ),
           ],
         ),
